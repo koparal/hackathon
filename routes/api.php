@@ -10,5 +10,14 @@ Route::get('events/{lang}', 'Api\EventController@index');
 Route::get('events/{id}/{lang_code}', 'Api\EventController@detail');
 
 Route::get('users', 'Api\UserController@all');
+Route::post('user-update', 'Api\UserController@userUpdate');
 Route::get('user-detail/{id}', 'Api\UserController@userDetail');
+
 Route::get('companies', 'Api\UserController@companies');
+
+Route::post('voteCompany', 'Api\CompanyRateController@vote');
+Route::post('salaryAdd', 'Api\SalaryController@add');
+
+Route::get('jobs/{lang}', 'Api\JobController@index');
+Route::get('job-detail/{lang}', 'Api\JobController@jobDetail');
+Route::post('job-apply', 'Api\JobController@jobApply');
