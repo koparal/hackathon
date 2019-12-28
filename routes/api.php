@@ -20,5 +20,5 @@ Route::post('voteCompany', 'Api\CompanyRateController@vote');
 Route::post('salaryAdd', 'Api\SalaryController@add');
 
 Route::get('jobs/{lang}', 'Api\JobController@index');
-Route::get('job-detail/{id}/{lang}', 'Api\JobController@jobDetail');
+Route::get('job-detail/{id}', 'Api\JobController@jobDetail');
 Route::post('job-apply', 'Api\JobController@jobApply');

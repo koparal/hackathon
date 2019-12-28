@@ -45,14 +45,24 @@ class JobController extends BaseController
         }
     }
 
-    public function jobDetail($id,$lang = "tr")
+    public function jobDetail($id)
     {
-        $data = Job::where("id",$id)->whereHas("details",function($q)use($lang){
-            $q->where("lang",$lang);
-        })->first();
+        $call = [];
+        $data = Job::where("id",$id)->first();
 
         if($data){
-            $data = json_encode($data);
+            $call = [
+                "id"=>$data->id,
+                "company"=>$data->company->name,
+                "title"=>$data->detail->title,
+                "detail"=>$data->detail->detail,
+                "number_of_people"=>$data->detail->number_of_people,
+                "city"=>$data->detail->findCity->name,
+            ];
+        }
+
+        if($call){
+            $data = json_encode($call);
             return $this->sendResponse($data,"true");
         }
         else {
