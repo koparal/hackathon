@@ -8,30 +8,27 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{!! route("dashboard.index") !!}">
                     <span data-feather="file"></span>
                     Kullanıcılar
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{!! route("dashboard.jobs.index") !!}">
                     <span data-feather="shopping-cart"></span>
-                    Roller
+                    İş İlanları
                 </a>
             </li>
-        </ul>
-
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span>Saved reports</span>
-            <a class="d-flex align-items-center text-muted" href="#">
-                <span data-feather="plus-circle"></span>
-            </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span data-feather="file-text"></span>
-                    --
+                <a class="nav-link" href="{!! route("dashboard.news.index") !!}">
+                    <span data-feather="shopping-cart"></span>
+                    Haberler
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{!! route("dashboard.events.index") !!}">
+                    <span data-feather="shopping-cart"></span>
+                    Roller
                 </a>
             </li>
         </ul>
