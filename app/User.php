@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Models\Cv;
+use App\Models\Role;
 use App\Models\UserExtra;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -38,6 +40,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function cv()
+    {
+        return $this->hasOne(Cv::class,'user_id');
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class,'role_id');
+    }
 
     public function extras()
     {

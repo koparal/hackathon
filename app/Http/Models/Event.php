@@ -17,4 +17,9 @@ class Event extends Model
         "category_id",
         "company_id"
     ];
+
+    public function users()
+    {
+        return $this->belongsToMany(EventUser::class);
+    }
 }
