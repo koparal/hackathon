@@ -18,12 +18,26 @@ class JobController extends BaseController
      */
     public function index($lang = "tr")
     {
+        $call = [];
         $data = Job::whereHas("details",function($q)use($lang){
             $q->where("lang",$lang);
         })->get();
 
         if($data){
-            $data = json_encode($data);
+            foreach($data as $d){
+                $call = [
+                    "id"=>$d->id,
+                    "company"=>$d->company->name,
+                    "title"=>$d->detail->title,
+                    "detail"=>$d->detail->detail,
+                    "number_of_people"=>$d->detail->number_of_people,
+                    "city"=>$d->detail->findCity->name,
+                ];
+            }
+        }
+
+        if($call){
+            $data = json_encode($call);
             return $this->sendResponse($data,"true");
         }
         else {

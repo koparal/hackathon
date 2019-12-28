@@ -14,9 +14,19 @@ class Job extends Model
         "company_id"
     ];
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class, "category_id");
+    }
+
     public function company()
     {
         return $this->belongsTo(User::class, "company_id");
+    }
+
+    public function detail()
+    {
+        return $this->hasOne(JobDetail::class);
     }
 
     public function details()

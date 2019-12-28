@@ -8,6 +8,7 @@ Route::get('news/{id}/{lang_code}', 'Api\NewsController@detail');
 
 Route::get('events/{lang}', 'Api\EventController@index');
 Route::get('events/{id}/{lang_code}', 'Api\EventController@detail');
+Route::get('event-join', 'Api\EventController@join');
 
 Route::get('users', 'Api\UserController@all');
 Route::post('user-update', 'Api\UserController@userUpdate');

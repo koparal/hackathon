@@ -12,11 +12,10 @@ class UserController extends BaseController
 {
     public function all()
     {
-        $data = User::where("role_id","!=",0)->all();
+        $data = User::where("role_id","!=",0)->get();
 
         if($data){
             $data = json_encode($data);
-
             return $this->sendResponse($data,"true");
         }
         else {

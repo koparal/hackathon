@@ -19,6 +19,16 @@ class JobDetail extends Model
         "location",
     ];
 
+    public function findCity()
+    {
+        return $this->belongsTo(City::class, "location","id");
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(User::class, "company_id");
+    }
+
     public function parent()
     {
         return $this->hasOne(JobDetail::class);
