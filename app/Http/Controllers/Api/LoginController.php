@@ -33,7 +33,8 @@ class LoginController extends BaseController
             $data = [
               "id"=>$user->id,
               "username"=>$user->name,
-              "email"=>$user->email
+              "email"=>$user->email,
+               "role_id"=>($user->role) ? $user->role->id : 0
             ];
             if ($user->extras){
                 foreach ($user->extras as $extra){
