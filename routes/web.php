@@ -10,11 +10,21 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', ['uses' => 'Auth\LoginController@showLoginForm', 'as' => 'showLoginForm']);
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => '/dashboard', 'as' => 'dashboard.','middleware' => 'IsAdmin'], function() {
+    Route::get('/', ['uses' => 'Dashboard\DashboardController@index', 'as' => 'index']);
+    Route::get('/index', ['uses' => 'Dashboard\DashboardController@index', 'as' => 'index']);
 });
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+#### API ####
+
+Route::post('register', 'API\RegisterController@register');
+
+Route::middleware('auth:api')->group( function () {
+    Route::get('/users', 'Api\UserController@index');
+});
+
+
+Route::Auth();
