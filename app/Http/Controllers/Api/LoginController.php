@@ -28,6 +28,7 @@ class LoginController extends BaseController
         ];
 
         if (Auth::attempt($userdata)) {
+
             $user = User::where("email",$email)->first();
             $data = [
               "id"=>$user->id,

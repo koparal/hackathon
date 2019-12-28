@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e2b3fd3-1fa8-4737-8be5-2e552da36d63" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/LoginController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,7 +26,7 @@
           <entry key="dummy" value="28" />
           <entry key="env" value="10" />
           <entry key="json" value="3" />
-          <entry key="php" value="5250" />
+          <entry key="php" value="5251" />
           <entry key="txt" value="5" />
         </counts>
       </usages-collector>
@@ -35,7 +34,7 @@
         <counts>
           <entry key="Blade" value="465" />
           <entry key="JSON" value="3" />
-          <entry key="PHP" value="4785" />
+          <entry key="PHP" value="4786" />
           <entry key="PLAIN_TEXT" value="43" />
         </counts>
       </usages-collector>
@@ -75,7 +74,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/LoginController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="73">
-              <caret line="30" column="57" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
+              <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
               <folding>
                 <element signature="e#44#72#0#PHP" expanded="true" />
               </folding>
@@ -419,7 +418,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30069000" />
+    <option name="totallyTimeSpent" value="30191000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -800,7 +799,7 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="73">
-          <caret line="30" column="57" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
+          <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
           <folding>
             <element signature="e#44#72#0#PHP" expanded="true" />
           </folding>
