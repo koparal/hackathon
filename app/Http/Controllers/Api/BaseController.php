@@ -7,6 +7,12 @@ use App\Http\Controllers\Controller as Controller;
 
 class BaseController extends Controller
 {
+
+    const ADMIN_ROLE_ID = 1;
+    const COMPANY_ROLE_ID = 2;
+    const USER_ROLE_ID = 3;
+
+
     /**
      * success response method.
      *

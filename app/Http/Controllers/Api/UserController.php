@@ -3,116 +3,58 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController as BaseController;
-use App\Models\User;
+use App\User;
 use Validator;
 
 
 class UserController extends BaseController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function all()
     {
-        $users = User::all();
-        return $this->sendResponse($users->toArray(), 'Users retrieved successfully.');
-    }
+        $data = User::where("role_id","!=",0)->all();
 
+        if($data){
+            $data = json_encode($data);
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $input = $request->all();
-
-
-        $validator = Validator::make($input, [
-            'name' => 'required',
-            'detail' => 'required'
-        ]);
-
-
-        if($validator->fails()){
-            return $this->sendError('Validation Error.', $validator->errors());
+            return $this->sendResponse($data,"true");
         }
-
-
-        $user = User::create($input);
-
-
-        return $this->sendResponse($user->toArray(), 'Product created successfully.');
-    }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $user = User::find($id);
-
-
-        if (is_null($user)) {
-            return $this->sendError('Product not found.');
+        else {
+            return $this->sendError('Veri bulunamadı.');
         }
-
-
-        return $this->sendResponse($user->toArray(), 'Product retrieved successfully.');
     }
 
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Product $user)
+    public function companies()
     {
-        $input = $request->all();
-
-
-        $validator = Validator::make($input, [
-            'name' => 'required',
-            'detail' => 'required'
-        ]);
-
-
-        if($validator->fails()){
-            return $this->sendError('Validation Error.', $validator->errors());
+        $data = User::where("role_id",self::COMPANY_ROLE_ID)->get();
+        if($data){
+            $data = json_encode($data);
+            return $this->sendResponse($data,"true");
         }
-
-
-        $user->name = $input['name'];
-        $user->detail = $input['detail'];
-        $user->save();
-
-
-        return $this->sendResponse($user->toArray(), 'Product updated successfully.');
+        else {
+            return $this->sendError('Veri bulunamadı.');
+        }
     }
 
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Product $user)
+    public function userDetail($id)
     {
-        $user->delete();
+        $user = User::where("id",$id)->first();
 
+        if($user){
+            $data = [
+                "username"=>$user->name,
+                "email"=>$user->email
+            ];
+            if ($user->extras){
+                foreach ($user->extras as $extra){
+                    $data += [$extra->key=>$extra->value];
+                }
+            }
+            $data = json_encode($data);
 
-        return $this->sendResponse($user->toArray(), 'Product deleted successfully.');
+            return $this->sendResponse($data,"true");
+        }
+        else {
+            return $this->sendError('Veri bulunamadı.');
+        }
     }
 }
