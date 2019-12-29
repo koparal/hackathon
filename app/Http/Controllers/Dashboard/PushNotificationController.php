@@ -12,6 +12,16 @@ class PushNotificationController extends Controller
 {
     public function index()
     {
-        return view('dashboard.roles.index', compact("data"));
+        return view('dashboard.push.index', compact("data"));
     }
+
+    public function create()
+    {
+        return view('dashboard.push.create', compact("data"));
+    }
+    public function targets()
+    {
+        return view('dashboard.push.targets', compact("data"));
+    }
+
 }

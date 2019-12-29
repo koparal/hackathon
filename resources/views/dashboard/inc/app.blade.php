@@ -12,8 +12,12 @@
 <body>
 @yield("content")
 
+
 <script src="{!! asset("panel/js/jquery-3.2.1.slim.min.js") !!}"></script>
 <script src="{!! asset("panel/js/popper.min.js") !!}"></script>
 <script src="{!! asset("panel/js/bootstrap.min.js") !!}"></script>
+<script src="{!! asset("panel/js/Chart.min.js") !!}"></script>
+@stack("scripts")
+
 </body>
 </html>

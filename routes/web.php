@@ -31,6 +31,13 @@ Route::group(['prefix' => '/dashboard', 'as' => 'dashboard.','middleware' => 'Is
     Route::group(['prefix' => '/cvler', 'as' => 'cvs.'], function(){
         Route::get('/', ['uses' => 'Dashboard\CvController@index', 'as' => 'index']);
     });
+    Route::group(['prefix' => '/push-notifications', 'as' => 'push_notifications.'], function(){
+        Route::get('/', ['uses' => 'Dashboard\PushNotificationController@index', 'as' => 'index']);
+        Route::get('/olustur', ['uses' => 'Dashboard\PushNotificationController@create', 'as' => 'create']);
+        Route::get('/hedefler', ['uses' => 'Dashboard\PushNotificationController@targets', 'as' => 'targets']);
+    });
+
+
 
 
 });
