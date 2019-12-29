@@ -13,6 +13,7 @@ Route::get('event-join', 'Api\EventController@join');
 Route::get('users', 'Api\UserController@all');
 Route::post('user-update', 'Api\UserController@userUpdate');
 Route::get('user-detail/{id}', 'Api\UserController@userDetail');
+Route::get('company-vote/{id}', 'Api\CompanyRateController@userVodes');
 
 Route::get('companies', 'Api\UserController@companies');
 

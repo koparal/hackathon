@@ -15,6 +15,11 @@ Route::group(['prefix' => '/dashboard', 'as' => 'dashboard.','middleware' => 'Is
         Route::get('/', ['uses' => 'Dashboard\NewsController@index', 'as' => 'index']);
     });
 
+    Route::group(['prefix' => '/push-notifications', 'as' => 'push_notifications.'], function(){
+        Route::get('/', ['uses' => 'Dashboard\PushNotificationController@index', 'as' => 'index']);
+    });
+
+
     Route::group(['prefix' => '/etkinlikler', 'as' => 'events.'], function(){
         Route::get('/', ['uses' => 'Dashboard\EventController@index', 'as' => 'index']);
     });
@@ -22,6 +27,11 @@ Route::group(['prefix' => '/dashboard', 'as' => 'dashboard.','middleware' => 'Is
     Route::group(['prefix' => '/is-ilanlari', 'as' => 'jobs.'], function(){
         Route::get('/', ['uses' => 'Dashboard\JobController@index', 'as' => 'index']);
     });
+
+    Route::group(['prefix' => '/cvler', 'as' => 'cvs.'], function(){
+        Route::get('/', ['uses' => 'Dashboard\CvController@index', 'as' => 'index']);
+    });
+
 
 });
 

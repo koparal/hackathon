@@ -47,4 +47,25 @@ class CompanyRateController extends BaseController
             return $this->sendError('Puan verilirken bir sorun oluştu. Lütfen tekrar deneyiniz.');
         }
     }
+
+    public function userVodes($id)
+    {
+        $company = CompanyRate::where("user_id",$id);
+
+        $transportation_rate = $company->avg('transportation_rate');
+        $eat_rate = $company->avg('eat_rate');
+        $management_rate = $company->avg('management_rate');
+        $general_rate = $company->avg('general_rate');
+
+        $data = [
+            "transportation_rate"=> substr($transportation_rate,0,4),
+            "eat_rate"=> substr($eat_rate,0,4),
+            "management_rate"=> substr($management_rate,0,4),
+            "general_rate"=> substr($general_rate,0,4),
+        ];
+
+        $data = json_encode($data);
+
+        return $this->sendResponse($data,"true");
+    }
 }

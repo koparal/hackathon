@@ -31,6 +31,18 @@
                     Etkinlikler
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{!! route("dashboard.events.index") !!}">
+                    Push Notifications
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{!! route("dashboard.cvs.index") !!}">
+                    CV'ler
+                </a>
+            </li>
         </ul>
     </div>
 </nav>
