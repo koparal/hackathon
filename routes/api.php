@@ -19,6 +19,9 @@ Route::get('companies', 'Api\UserController@companies');
 
 Route::post('voteCompany', 'Api\CompanyRateController@vote');
 Route::post('salaryAdd', 'Api\SalaryController@add');
+Route::post('contact', 'Api\ContactController@save');
+
+Route::post('cv-add', 'Api\CvController@add');
 
 Route::get('jobs/{lang}', 'Api\JobController@index');
 Route::get('job-detail/{id}', 'Api\JobController@jobDetail');
