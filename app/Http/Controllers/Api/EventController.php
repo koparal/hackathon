@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Event;
 use App\Http\Controllers\Api\BaseController as BaseController;
+use App\Models\EventUser;
 use Illuminate\Http\Request;
 use Validator;
 
@@ -50,11 +51,12 @@ class EventController extends BaseController
         }
 
         $data = [
-            "event_id"=> $request->company_id,
+            "event_id"=> $request->event_id,
             "user_id"=> $request->user_id,
         ];
 
-        $data = SalaryRate::create($data);
+        $data = EventUser::create($data);
+
         if($data){
             $data = json_encode($data);
             return $this->sendResponse($data,"Etkinlik kaydınız başarıyla eklendi. Teşekkürler..");
